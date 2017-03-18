@@ -1,1 +1,22 @@
-<p>Hellow World!</p>
+<% @projects.each do |project| %>
+  <h2>
+  <%= project.title %>
+  </h2>
+ 
+  <h2>
+  <%= project.content %>
+  </h2>
+ 
+  <h2>
+  <%= project.price %>
+  </h2>
+ 
+  <h2>
+  <%= project.start_day %>
+  </h2>
+ 
+  <h2>
+  <%= project.end_day %>
+  </h2>
+
+<% end %>
