@@ -1,0 +1,13 @@
+<div class="contents row">
+  <%= form_tag("/projects/#{@project.id}", method: :patch) do %>
+    <h3>
+      編集する
+    </h3>
+    <p><input placeholder="タイトル" type="text" name="title" value="<%= @project.title %>" autofocus="true"></p>
+    <p><textarea cols="60" name="content" placeholder="依頼内容の説明" rows="20"><%= @project.content %></textarea></p>
+    <p><input placeholder="発注金額(単位：円)" type="integer" name="price" value="<%= @project.price %>"</p>
+    <p>開始日</p><input type="date" name="start_day" value="<%= @project.start_day %>">
+    <p>完了日</p><input type="date" name="end_day" value="<%= @project.end_day %>">
+    <p><input type="submit" value="SENT"></p>
+  <% end %>
+</div>

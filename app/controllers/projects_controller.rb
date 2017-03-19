@@ -16,6 +16,15 @@ class ProjectsController < ApplicationController
      project.destroy
   end
 
+  def edit
+    @project = Project.find(params[:id])
+  end
+
+  def update
+    project = Project.find(params[:id])
+     project.update(project_params)
+  end
+
  private
   def project_params
     params.permit(:title, :content, :price, :start_day, :end_day)

@@ -8,8 +8,10 @@
     <%= project.price %><br/>
     <%= project.start_day %><br/>
     <%= project.end_day %><br/><br/>
+    <li><%= link_to '編集', "/projects/#{project.id}/edit", method: :get %>
+    </li>
     <li><%= link_to '削除', "/projects/#{project.id}", method: :delete %>
-     </li>
+    </li>
   <% end %>
  <%= paginate(@projects) %>
 </div>
