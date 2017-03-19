@@ -1,8 +1,13 @@
+<div>
+  <a class="post" href="/projects/new">案件を登録する</a>
+</div>
 <div class="content row">
-<% @projects.each do |project| %>
-  <h2><%= simple_format(project.title) %></h2>
-  <%= project.content %><br/>
-  <%= project.price %><br/>
-  <%= project.start_day %><br/>
-  <%= project.end_day %><br/><br/>
-<% end %>
+  <% @projects.each do |project| %>
+    <h2><%= simple_format(project.title) %></h2>
+    <%= project.content %><br/>
+    <%= project.price %><br/>
+    <%= project.start_day %><br/>
+    <%= project.end_day %><br/><br/>
+  <% end %>
+ <%= paginate(@projects) %>
+</div>
