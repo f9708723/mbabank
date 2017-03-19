@@ -1,0 +1,13 @@
+<div class="contents row">
+  <%= form_tag('/projects', method: :post) do %>
+    <h3>
+      案件を登録する
+    </h3>
+    <p><input placeholder="タイトル" type="text" name="title"></p>
+    <p><textarea cols="60" name="text" placeholder="依頼内容の説明" rows="20"></textarea></p>
+    <p><input placeholder="発注金額(単位：円)" type="integer" name="price"></p>
+    <p>開始日</p><input type="date" name="start_day">
+    <p>完了日</p><input type="date" name="end_day">
+    <p><input type="submit" value="登録する"></p>
+  <% end %>
+</div>
