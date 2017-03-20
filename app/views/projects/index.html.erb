@@ -1,5 +1,7 @@
 <div>
   <a class="post" href="/projects/new">案件を登録する</a>
+  <a class="entry_button">
+    <%= link_to 'サインアウト', "/clients/sign_out", method: :delete %></a>
 </div>
 <div class="content row">
   <% @projects.each do |project| %>

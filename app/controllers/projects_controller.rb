@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
 
+before_action :authenticate_client!, only: :new
   def index
     @projects = Project.all.order("created_at DESC").page(params[:page]).per(5)
   end
@@ -25,7 +26,7 @@ class ProjectsController < ApplicationController
      project.update(project_params)
   end
 
- private
+  private
   def project_params
     params.permit(:title, :content, :price, :start_day, :end_day)
   end
