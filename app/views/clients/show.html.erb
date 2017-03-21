@@ -1,9 +1,10 @@
-<%= @client.email %>のユーザーページです。
-
+<div><%= image_tag(@client.avatar(:medium)) %>
+</div>
 <p>会社名：<%= @client.company_name %></p>
 <p>所属部署：<%= @client.division %></p>
 <p>役職：<%= @client.position %></p>
 <p>氏名：<%= @client.name %></p>
+<p>メールアドレス：<%= @client.email %></p>
 <% if current_client.id == @client.id %>
 <div><%= link_to "プロフィール編集", edit_client_path(current_client) %></div>
 <% end %>

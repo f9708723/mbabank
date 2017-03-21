@@ -12,6 +12,6 @@ class ClientsController < ApplicationController
 
   private
   def update_params
-    params.require(:client).permit(:company_name, :division, :position, :family_name, :first_name)
+    params.require(:client).permit(:company_name, :division, :position, :family_name, :first_name, :avatar)
   end
 end
