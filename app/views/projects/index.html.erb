@@ -1,7 +1,15 @@
 <div>
   <a class="post" href="/projects/new">案件を登録する</a>
-  <a class="entry_button">
-    <%= link_to 'サインアウト', "/clients/sign_out", method: :delete %></a>
+
+  <% if client_signed_in? %>
+    <a class="entry_button">
+      <%= link_to 'ログアウト', "/clients/sign_out", method: :delete %></a>
+    <a class="client page">
+      <%= link_to "マイページ", client_path(current_client.id) %></a>
+  <% else %>
+    <a class="log-in page">
+      <%= link_to "ログイン", new_client_session_path %></a>
+  <% end %>
 </div>
 <div class="content row">
   <% @projects.each do |project| %>
