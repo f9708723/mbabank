@@ -3,4 +3,8 @@ class Client < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
+  def name
+    "#{family_name} #{first_name}"
+  end
 end
