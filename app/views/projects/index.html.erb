@@ -18,10 +18,14 @@
     <%= project.price %><br/>
     <%= project.start_day %><br/>
     <%= project.end_day %><br/><br/>
+
+ <% if client_signed_in? && (current_client.id == project.client_id) %>
     <li><%= link_to '編集', "/projects/#{project.id}/edit", method: :get %>
     </li>
     <li><%= link_to '削除', "/projects/#{project.id}", method: :delete %>
     </li>
-  <% end %>
+ <% else %>
+ <% end %>
+<% end %>
  <%= paginate(@projects) %>
 </div>

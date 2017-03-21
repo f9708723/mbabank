@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170321100936) do
+ActiveRecord::Schema.define(version: 20170321114149) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170321100936) do
     t.date     "end_day"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "client_id",  limit: 4
   end
 
 end
