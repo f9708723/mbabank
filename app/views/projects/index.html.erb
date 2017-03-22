@@ -15,7 +15,8 @@
   <% @projects.each do |project| %>
     <h2><%= simple_format(project.title) %></h2>
     <%= project.content %><br/>
-    <%= project.price %><br/>
+    <%= number_with_delimiter(project.price) %>円<br/>
+    <%= project.entry_deadline %><br/>
     <%= project.start_day %><br/>
     <%= project.end_day %><br/><br/>
 

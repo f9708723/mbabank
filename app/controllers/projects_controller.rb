@@ -9,7 +9,7 @@ before_action :authenticate_client!, only: :new
   end
 
   def create
-    Project.create(title: project_params[:title], content: project_params[:content], price: project_params[:price], start_day: project_params[:start_day], end_day: project_params[:end_day], client_id: current_client.id)
+    Project.create(title: project_params[:title], content: project_params[:content], price: project_params[:price], entry_deadline: project_params[:entry_deadline], start_day: project_params[:start_day], end_day: project_params[:end_day], client_id: current_client.id)
   end
 
   def destroy
@@ -28,6 +28,6 @@ before_action :authenticate_client!, only: :new
 
   private
   def project_params
-    params.permit(:title, :content, :price, :start_day, :end_day)
+    params.permit(:title, :content, :price, :entry_deadline, :start_day, :end_day)
   end
 end
