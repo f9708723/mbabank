@@ -1,0 +1,33 @@
+<a class="top" href="/projects">案件一覧に戻る</a>
+<%= form_for current_worker do |f| %>
+      <h2>登録情報</h2>
+      <div class="form-group">
+        <div class="col-lg-6">
+          <%= f.text_field :family_name, placeholder: "姓", class: "form-control" %>
+        </div>
+        <div class="col-lg-6">
+          <%= f.text_field :first_name, placeholder: "名", class: "form-control" %>
+        </div>
+         <label><%= f.radio_button :sex, "1" %>男</label>
+         <label><%= f.radio_button :sex, "2" %>女</label>
+         <div class="col-lg-6">
+          <%= f.text_field :age, placeholder: "年齢", class: "form-control" %>
+         </div>
+         <div class="col-lg-6">
+          <%= f.text_field :specialized_industry, placeholder: "専門業界", class: "form-control" %>
+         </div>
+         <div class="col-lg-6">
+          <%= f.text_field :specialized_theme, placeholder: "専門テーマ", class: "form-control" %>
+         </div>
+         <div class="col-lg-6">
+          <%= f.text_field :self_introduction, placeholder: "自己紹介", class: "form-control" %>
+         </div>
+        <h2>プロフィール画像</h2>
+        <div class="form-group file">
+        <%= f.file_field :avatar, class: "form-control floating-label", placeholder: "画像アップロード" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.submit "送信", class: "btn btn-primary withripple" %>
+      </div>
+    <% end %>

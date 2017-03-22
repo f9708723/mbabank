@@ -1,0 +1,17 @@
+<a class="top" href="/projects">案件一覧に戻る</a>
+<div class="content row">
+  <% @workers.each do |worker| %>
+    <h2><%= simple_format(worker.name) %></h2>
+    専門業界：<%= worker.specialized_industry %><br/>
+    専門テーマ：<%= worker.specialized_theme %><br/>
+ <li><%= link_to '詳細プロフィール', "/workers/#{worker.id}" %>
+    </li>
+
+ <% if worker_signed_in? && (current_worker.id == worker.id) %>
+    <li><%= link_to '編集', "/workers/#{worker.id}/edit", method: :get %>
+    </li>
+ <% else %>
+ <% end %>
+<% end %>
+ <%= paginate(@workers) %>
+</div>
