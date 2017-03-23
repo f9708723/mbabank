@@ -31,9 +31,18 @@
     <%= project.start_day %><br/>
     <%= project.end_day %><br/><br/>
 
-<% if worker_signed_in? %>
-    <a href="/projects/<%= project.id %>/proposals/new">この案件に提案する</a>
-<% end %>
+    <% unless project.proposals.exists?(worker_id: current_worker.id) %>
+    <% if worker_signed_in? && (Date.today <= project.entry_deadline) %>
+        <a href="/projects/<%= project.id %>/proposals/new">この案件に提案する</a>
+    <% else %>
+    <% end %>
+    <% else %>
+        <a>この案件には提案済みです。</a>
+    <% end %>
+
+    <% if Date.today > project.entry_deadline %>
+      <a>この案件へのエントリーは終了しました。</a>
+    <% end %>
 
  <% if client_signed_in? && (current_client.id == project.client_id) %>
     <li><%= link_to '編集', "/projects/#{project.id}/edit", method: :get %>
