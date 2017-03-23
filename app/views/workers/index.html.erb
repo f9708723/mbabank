@@ -2,6 +2,8 @@
 <div class="content row">
   <% @workers.each do |worker| %>
     <h2><%= simple_format(worker.name) %></h2>
+    <div><%= image_tag(worker.avatar(:thumb)) %>
+</div>
     専門業界：<%= worker.specialized_industry %><br/>
     専門テーマ：<%= worker.specialized_theme %><br/>
  <li><%= link_to '詳細プロフィール', "/workers/#{worker.id}" %>
