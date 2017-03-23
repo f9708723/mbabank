@@ -1,25 +1,27 @@
 <div>
-  <a class="post" href="/projects/new">案件を登録する</a>
-  <a class="post" href="/workers/sign_in">案件にエントリーする</a>
-  <a class="post" href="/workers">コンサルタント一覧</a>
-
   <% if client_signed_in? %>
+    <a class="post" href="/projects/new">案件を登録する</a>
+    <a class="post" href="/workers">コンサルタント一覧</a>
     <a class="entry_button">
-      <%= link_to 'ログアウト（依頼主）', "/clients/sign_out", method: :delete %></a>
+      <%= link_to 'ログアウト', "/clients/sign_out", method: :delete %></a>
     <a class="client page">
-      <%= link_to "マイページ（依頼主）", client_path(current_client.id) %></a>
+      <%= link_to "マイページ", client_path(current_client.id) %></a>
 
    <% elsif worker_signed_in?%>
+    <a class="post" href="/workers">コンサルタント一覧</a>
     <a class="entry_button">
-      <%= link_to 'ログアウト（受注者）', "/workers/sign_out", method: :delete %></a>
+      <%= link_to 'ログアウト', "/workers/sign_out", method: :delete %></a>
     <a class="worker page">
-      <%= link_to "マイページ（受注者）", worker_path(current_worker.id) %></a>
+      <%= link_to "マイページ", worker_path(current_worker.id) %></a>
 
    <% else %>
+    <a class="post" href="/projects/new">案件を登録する</a>
+    <a class="post" href="/workers/sign_in">案件にエントリーする</a>
+    <a class="post" href="/workers">コンサルタント一覧</a>
     <a class="log-in page">
-      <%= link_to "ログイン（依頼主）", new_client_session_path %></a>
+      <%= link_to "依頼主としてログインする", new_client_session_path %></a>
     <a class="log-in page">
-      <%= link_to "ログイン（受注者）", new_worker_session_path %></a>
+      <%= link_to "受注者としてログインする", new_worker_session_path %></a>
   <% end %>
 </div>
 <div class="content row">
@@ -31,7 +33,7 @@
     開始希望日：<%= project.start_day %><br/>
     納品希望日：<%= project.end_day %><br/><br/>
 
-　　<% if worker_signed_in? %>
+    <% if worker_signed_in? %>
     <% unless project.proposals.exists?(worker_id: current_worker.id) %>
     <% if Date.today <= project.entry_deadline %>
         <a href="/projects/<%= project.id %>/proposals/new">この案件に提案する</a>
