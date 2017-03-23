@@ -24,12 +24,12 @@
 </div>
 <div class="content row">
   <% @projects.each do |project| %>
-    <h2><%= simple_format(project.title) %></h2>
-    <%= project.content %><br/>
-    <%= number_with_delimiter(project.price) %>円<br/>
-    <%= project.entry_deadline %><br/>
-    <%= project.start_day %><br/>
-    <%= project.end_day %><br/><br/>
+    <h2>プロジェクト名：<%= project.title %></h2>
+    プロジェクトの内容：<%= project.content %><br/>
+    予算：<%= number_with_delimiter(project.price) %>円<br/>
+    エントリー締切日：<%= project.entry_deadline %><br/>
+    開始希望日：<%= project.start_day %><br/>
+    納品希望日：<%= project.end_day %><br/><br/>
 
 　　<% if worker_signed_in? %>
     <% unless project.proposals.exists?(worker_id: current_worker.id) %>
