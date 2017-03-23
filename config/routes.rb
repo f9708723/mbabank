@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :workers
   devise_for :clients
-root to: 'projects#index'
+root to: 'top#index'
 
 resources :clients, only: [:show, :edit, :update, :index]
 resources :workers, only: [:show, :edit, :update, :index]
