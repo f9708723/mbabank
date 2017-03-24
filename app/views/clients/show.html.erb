@@ -9,3 +9,15 @@
 <% if current_client.id == @client.id %>
 <div><%= link_to "プロフィール編集", edit_client_path(current_client) %></div>
 <% end %>
+
+<br/>
+<h2>〔登録案件へのエントリー状況〕</h2>
+<% @projects.each do |project| %>
+  <h3>プロジェクト名：<%= project.title %></h3>
+<% project.proposals.each do |proposal| %>
+  <p>提案者：<%= proposal.worker.name %></p>
+  <p>提案内容：<%= proposal.content %></p>
+  <p>見積金額：<%= proposal.estimate %>円</p>
+  <p>連絡先：<%= proposal.worker.email %></p><br/>
+<% end %>
+<% end %>

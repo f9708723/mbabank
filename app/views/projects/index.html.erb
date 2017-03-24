@@ -1,4 +1,5 @@
 <div>
+    <a class="post" href="/">Topへ</a>
   <% if client_signed_in? %>
     <a class="post" href="/projects/new">案件を登録する</a>
     <a class="post" href="/workers">コンサルタント一覧</a>
@@ -17,7 +18,7 @@
    <% else %>
     <a class="post" href="/projects/new">案件を登録する</a>
     <a class="post" href="/workers/sign_in">案件にエントリーする</a>
-    <a class="post" href="/workers">コンサルタント一覧</a>　　　　　　　　　　　　　　　　　　　　　　　　
+    <a class="post" href="/workers">コンサルタント一覧</a>　　　　　　　　　　　
     <a class="log-in page">
       <%= link_to "依頼主としてログインする", new_client_session_path %></a>　
     <a class="log-in page">
@@ -36,10 +37,12 @@
     <% if worker_signed_in? %>
     <% unless project.proposals.exists?(worker_id: current_worker.id) %>
     <% if Date.today <= project.entry_deadline %>
+        <p>エントリー数：<%= project.proposals.count %>件</p>
         <a href="/projects/<%= project.id %>/proposals/new">この案件に提案する</a>
     <% else %>
     <% end %>
     <% else %>
+        <p>エントリー数：<%= project.proposals.count %>件</p>
         <a>※この案件には提案済みです。</a>
     <% end %>
     <% end %>
@@ -54,6 +57,7 @@
       <li><%= link_to '削除', "/projects/#{project.id}", method: :delete %>
       </li>
    <% else %>
+      <p>エントリー数：<%= project.proposals.count %>件</p>
    <% end %>
   <% end %>
  <%= paginate(@projects) %>

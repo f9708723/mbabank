@@ -1,6 +1,8 @@
 class ClientsController < ApplicationController
   def show
     @client = Client.find(params[:id])
+    @projects = current_client.projects
+
   end
 
   def edit

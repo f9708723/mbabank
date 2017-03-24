@@ -11,8 +11,4 @@ class Worker < ActiveRecord::Base
     "#{family_name} #{first_name}"
   end
 
-  def name_kana
-    "#{family_name_kana} #{first_name_kana}"
-  end
-
 end
