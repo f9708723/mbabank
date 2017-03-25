@@ -1,31 +1,29 @@
-<div>
-    <a class="post" href="/">Topへ</a>
+<div class="container">
+    <a class="btn btn-default" href="/">Topへ</a>
   <% if client_signed_in? %>
-    <a class="post" href="/projects/new">案件を登録する</a>
-    <a class="post" href="/workers">コンサルタント一覧</a>
-    <a class="entry_button">
-      <%= link_to 'ログアウト', "/clients/sign_out", method: :delete %></a>
-    <a class="client page">
-      <%= link_to "マイページ", client_path(current_client.id) %></a>
+    <a class="btn btn-primary" href="/projects/new">案件を登録する</a>
+    <a class="btn btn-success" href="/workers">コンサルタント一覧</a>
+    <button type="button" class="btn btn-default navbar-btn"><a>
+      <%= link_to 'ログアウト', "/clients/sign_out", method: :delete %></a></button>
+    <button type="button" class="btn btn-default navbar-btn"><a>
+      <%= link_to "マイページ", client_path(current_client.id) %></a></button>
 
    <% elsif worker_signed_in?%>
-    <a class="post" href="/workers">コンサルタント一覧</a>
-    <a class="entry_button">
-      <%= link_to 'ログアウト', "/workers/sign_out", method: :delete %></a>
-    <a class="worker page">
-      <%= link_to "マイページ", worker_path(current_worker.id) %></a>
+    <button type="button" class="btn btn-default navbar-btn"><a href="/workers">コンサルタント一覧</a></button>
+    <button type="button" class="btn btn-default navbar-btn"><a><%= link_to 'ログアウト', "/workers/sign_out", method: :delete %></a></button>
+    <button type="button" class="btn btn-default navbar-btn"><a>
+      <%= link_to "マイページ", worker_path(current_worker.id) %></a></button>
 
    <% else %>
-    <a class="post" href="/projects/new">案件を登録する</a>
-    <a class="post" href="/workers/sign_in">案件にエントリーする</a>
-    <a class="post" href="/workers">コンサルタント一覧</a>　　　　　　　　　　　
-    <a class="log-in page">
-      <%= link_to "依頼主としてログインする", new_client_session_path %></a>　
-    <a class="log-in page">
-      <%= link_to "受注者としてログインする", new_worker_session_path %></a>
+    <a class="btn btn-info" href="/projects/new">案件を登録する</a>
+    <a class="btn btn-primary" href="/workers/sign_in">案件にエントリーする</a>
+    <a class="btn btn-default" href="/workers">コンサルタント一覧</a>　　　　　　　　　　　
+    <button type="button" class="btn btn-default navbar-btn"><a>
+      <%= link_to "依頼主としてログインする", new_client_session_path %></a></button>
+    <button type="button" class="btn btn-default navbar-btn"><a><%= link_to "受注者としてログインする", new_worker_session_path %></a></button>
   <% end %>
 </div>
-<div class="content row">
+<div class="container">
   <% @projects.each do |project| %>
     <h2>プロジェクト名：<%= project.title %></h2>
     プロジェクトの内容：<%= project.content %><br/>

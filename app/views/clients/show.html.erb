@@ -1,4 +1,5 @@
-<a class="top" href="/projects">案件一覧に戻る</a>
+<div class="container">
+<button type="button" class="btn btn-default navbar-btn"><a href="/projects">案件一覧に戻る</a></button>
 <div><%= image_tag(@client.avatar(:medium)) %>
 </div>
 <p>会社名：<%= @client.company_name %></p>
@@ -11,7 +12,7 @@
 <% end %>
 
 <br/>
-<h2>〔登録案件へのエントリー状況〕</h2>
+<button type="button" class="btn btn-default navbar-btn"><h2>〔登録案件へのエントリー状況〕</h2></button>
 <% @projects.each do |project| %>
   <h3>プロジェクト名：<%= project.title %></h3>
 <% project.proposals.each do |proposal| %>

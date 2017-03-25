@@ -16,6 +16,6 @@ class WorkersController < ApplicationController
 
   private
   def update_params
-    params.require(:worker).permit(:family_name, :first_name, :sex, :age, :specialized_industry, :specialized_theme, :self_introduction, :avatar)
+    params.require(:worker).permit(:family_name, :first_name, :sex_id, :age, :specialized_industry, :specialized_theme, :self_introduction, :avatar)
   end
 end

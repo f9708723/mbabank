@@ -1,4 +1,5 @@
-<a class="top" href="/projects">案件一覧に戻る</a>
+<div class="container">
+  <button type="button" class="btn btn-default navbar-btn"><a href="/projects">案件一覧に戻る</a></button>
 <%= form_for current_worker do |f| %>
       <h2>登録情報</h2>
       <div class="form-group">
@@ -8,8 +9,8 @@
         <div class="col-lg-6">
           <%= f.text_field :first_name, placeholder: "名", class: "form-control" %>
         </div>
-         <label><%= f.radio_button :sex, "1" %>男</label>
-         <label><%= f.radio_button :sex, "2" %>女</label>
+         <label><%= f.radio_button :sex_id, "1" %>男性</label>
+         <label><%= f.radio_button :sex_id, "2" %>女性</label>
          <div class="col-lg-6">
           <%= f.text_field :age, placeholder: "年齢", class: "form-control" %>
          </div>
@@ -31,3 +32,4 @@
         <%= f.submit "送信", class: "btn btn-primary withripple" %>
       </div>
     <% end %>
+</div>
