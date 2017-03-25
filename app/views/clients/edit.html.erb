@@ -3,22 +3,22 @@
 <%= form_for current_client do |f| %>
       <h2>登録情報</h2>
       <div class="form-group">
-        <div class="col-lg-6">
-          <%= f.text_field :company_name, placeholder: "会社名", class: "form-control" %>
+        <div class="col-lg-2 block">
+          会社名：<%= f.text_field :company_name, placeholder: "会社名", class: "form-control" %>
         </div>
-        <div class="col-lg-6">
-          <%= f.text_field :division, placeholder: "所属部門", class: "form-control" %>
+        <div class="col-lg-2 block">
+          所属部門：<%= f.text_field :division, placeholder: "所属部門", class: "form-control" %>
         </div>
-        <div class="col-lg-6">
-          <%= f.text_field :position, placeholder: "役職", class: "form-control" %>
+        <div class="col-lg-2 block">
+          役職：<%= f.text_field :position, placeholder: "役職", class: "form-control" %>
         </div>
-        <div class="col-lg-6">
-          <%= f.text_field :family_name, placeholder: "姓", class: "form-control" %>
+        <div class="col-lg-2 block">
+          姓：<%= f.text_field :family_name, placeholder: "姓", class: "form-control" %>
         </div>
-        <div class="col-lg-6">
-          <%= f.text_field :first_name, placeholder: "名", class: "form-control" %>
-        </div>
-        <h2>プロフィール画像</h2>
+        <div class="col-lg-2 block">
+          名：<%= f.text_field :first_name, placeholder: "名", class: "form-control" %>
+        </div><br/><br/><br/><br/><br/><br/>
+        <p>プロフィール画像</p>
         <div class="form-group file">
         <%= f.file_field :avatar, class: "form-control floating-label", placeholder: "画像アップロード" %>
         </div>

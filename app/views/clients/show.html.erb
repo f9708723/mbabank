@@ -12,9 +12,10 @@
 <% end %>
 
 <br/>
-<button type="button" class="btn btn-default navbar-btn"><h2>〔登録案件へのエントリー状況〕</h2></button>
+<button type="button" class="btn btn-primary navbar-btn"><h3>登録案件へのエントリー状況</h3></button>
 <% @projects.each do |project| %>
   <h3>プロジェクト名：<%= project.title %></h3>
+  <p class="btn btn-default">エントリー件数：<%= project.proposals.count %>件</p>
 <% project.proposals.each do |proposal| %>
   <p>提案者：<%= proposal.worker.name %></p>
   <p>提案内容：<%= proposal.content %></p>

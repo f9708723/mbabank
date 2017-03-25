@@ -1,8 +1,8 @@
 <div class="container">
-<button type="button" class="btn btn-default navbar-btn"><a href="/projects">案件一覧に戻る</a></button>
+<p class="btn btn-info"><%= link_to '案件一覧に戻る', "/projects" %></p>
 <div class="content row">
   <% @workers.each do |worker| %>
-    <h2><%= simple_format(worker.name) %></h2>
+    <h2>氏名：<%= worker.name %></h2>
     <div><%= image_tag(worker.avatar(:thumb)) %>
 </div>
     専門業界：<%= worker.specialized_industry %><br/>

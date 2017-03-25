@@ -3,33 +3,35 @@
 <%= form_for current_worker do |f| %>
       <h2>登録情報</h2>
       <div class="form-group">
-        <div class="col-lg-6">
-          <%= f.text_field :family_name, placeholder: "姓", class: "form-control" %>
-        </div>
-        <div class="col-lg-6">
-          <%= f.text_field :first_name, placeholder: "名", class: "form-control" %>
-        </div>
-         <label><%= f.radio_button :sex_id, "1" %>男性</label>
-         <label><%= f.radio_button :sex_id, "2" %>女性</label>
-         <div class="col-lg-6">
-          <%= f.text_field :age, placeholder: "年齢", class: "form-control" %>
+      <div class="block">
+        <div class="col-lg-2">
+          <p>姓：<%= f.text_field :family_name, placeholder: "姓", class: "form-control" %></p>
          </div>
-         <div class="col-lg-6">
-          <%= f.text_field :specialized_industry, placeholder: "専門業界", class: "form-control" %>
+         <div class="col-lg-2">
+          <p>名：<%= f.text_field :first_name, placeholder: "名", class: "form-control" %></p>
          </div>
-         <div class="col-lg-6">
-          <%= f.text_field :specialized_theme, placeholder: "専門テーマ", class: "form-control" %>
          </div>
-         <div class="col-lg-6">
-          <%= f.text_field :self_introduction, placeholder: "自己紹介", class: "form-control" %>
+         <div class="block">
+         <p>性別：<label><%= f.radio_button :sex_id, "1" %>男性</label>
+         <label><%= f.radio_button :sex_id, "2" %>女性</label></p>
          </div>
-        <h2>プロフィール画像</h2>
-        <div class="form-group file">
-        <%= f.file_field :avatar, class: "form-control floating-label", placeholder: "画像アップロード" %>
-        </div>
-      </div>
-      <div class="form-group">
+         <div class="col-lg-2 block">
+          <p>年齢：<%= f.text_field :age, placeholder: "年齢", class: "form-control" %></p>
+         </div>
+         <div class="col-lg-6 block"><p>専門業界：
+          <%= f.text_field :specialized_industry, placeholder: "専門業界", class: "form-control" %><p></div>
+         </div>
+         <div class="col-lg-6 block">
+          <p>専門テーマ：<%= f.text_field :specialized_theme, placeholder: "専門テーマ", class: "form-control" %></p>
+         </div>
+         <div class="col-lg-6 block">
+          <p>自己紹介：<%= f.text_field :self_introduction, placeholder: "自己紹介", class: "form-control" %></p>
+         </div>
+
+        <div class="form-group file block">
+         <p class="block">プロフィール画像:
+         <%= f.file_field :avatar, class: "form-control floating-label", placeholder: "画像アップロード" %></p>
         <%= f.submit "送信", class: "btn btn-primary withripple" %>
-      </div>
+        </div>
     <% end %>
 </div>

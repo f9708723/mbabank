@@ -1,5 +1,5 @@
 <div class="container">
-    <a class="btn btn-default" href="/">Topへ</a>
+    <a class="btn btn-default" href="/">Top</a>
   <% if client_signed_in? %>
     <a class="btn btn-primary" href="/projects/new">案件を登録する</a>
     <a class="btn btn-success" href="/workers">コンサルタント一覧</a>
@@ -35,18 +35,16 @@
     <% if worker_signed_in? %>
     <% unless project.proposals.exists?(worker_id: current_worker.id) %>
     <% if Date.today <= project.entry_deadline %>
-        <p>エントリー数：<%= project.proposals.count %>件</p>
         <a href="/projects/<%= project.id %>/proposals/new">この案件に提案する</a>
     <% else %>
     <% end %>
     <% else %>
-        <p>エントリー数：<%= project.proposals.count %>件</p>
         <a>※この案件には提案済みです。</a>
     <% end %>
     <% end %>
 
     <% if Date.today > project.entry_deadline %>
-      <a>※この案件へのエントリーは終了しました。</a>
+      <p><a>※この案件へのエントリーは終了しました。</a><p>
     <% end %>
 
    <% if client_signed_in? && (current_client.id == project.client_id) %>
@@ -55,8 +53,8 @@
       <li><%= link_to '削除', "/projects/#{project.id}", method: :delete %>
       </li>
    <% else %>
-      <p>エントリー数：<%= project.proposals.count %>件</p>
-   <% end %>
+      <% end %>
+     <p class="btn btn-default">エントリー数：<%= project.proposals.count %>件</p>
   <% end %>
- <%= paginate(@projects) %>
+ <P><%= paginate(@projects) %></P>
 </div>

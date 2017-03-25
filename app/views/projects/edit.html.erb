@@ -1,15 +1,15 @@
 <div class="container">
   <%= form_tag("/projects/#{@project.id}", method: :patch) do %>
     <h3>
-      編集する
+      案件を編集する
     </h3>
-    <p><input placeholder="タイトル" type="text" name="title" value="<%= @project.title %>" autofocus="true"></p>
-    <p><textarea cols="60" name="content" placeholder="依頼内容の説明" rows="20"><%= @project.content %></textarea></p>
-    <p>発注金額：<input placeholder="発注金額(単位：円)" type="integer" name="price" value="<%= @project.price %>"</p>
-    <p>エントリー締切</p><input type="date" name="entry_deadline" value="<%= @project.entry_deadline %>">
-    <p>開始日</p><input type="date" name="start_day" value="<%= @project.start_day %>">
-    <p>完了日</p><input type="date" name="end_day" value="<%= @project.end_day %>">
-    <p><input type="submit" value="SENT"></p>
+    <p>タイトル名：<input placeholder="タイトル" type="text" name="title" value="<%= @project.title %>" autofocus="true"></p>
+    <p>依頼内容：<br/><textarea cols="60" name="content" placeholder="依頼内容の説明" rows="20"><%= @project.content %></textarea></p>
+    <p>発注金額：<input placeholder="発注金額(単位：円)" type="integer" name="price" value="<%= @project.price %>"</p>円
+    <p>エントリー締切：<input type="date" name="entry_deadline" value="<%= @project.entry_deadline %>"></p>
+    <p>開始日:<input type="date" name="start_day" value="<%= @project.start_day %>"></p>
+    <p>完了日:<input type="date" name="end_day" value="<%= @project.end_day %>"></p>
+    <p><input type="submit" value="更新する"></p>
     <a class="top" href="/projects">案件一覧に戻る</a>
   <% end %>
 </div>
